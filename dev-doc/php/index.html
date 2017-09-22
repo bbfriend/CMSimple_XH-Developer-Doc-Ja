@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CMSimple_XH 開発者ドキュメント: 総合概要</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/XRegExp.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shAutoloader.js"></script>
+<link href="js/syntaxhighlighter/styles/shCoreDefault.css"" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><a href="/"><img alt="Logo" src="logo.jpg"/></a></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CMSimple_XH 開発者ドキュメント
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">CMSimple_XH 開発者ドキュメント 詳解</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+
+
+
+<div class="toc"><h3>コンテンツ</h3>
+<ul><li class="level1"><a href="#architecture">システム構成</a><ul><li class="level2"><a href="#plugins">プラグイン</a></li>
+<li class="level2"><a href="#templates">テンプレート</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#api">API</a></li>
+</ul>
+</div>
+<p><a href="http://www.cmsimple-xh.org/dev-doc/php/index.html" target="_blank">CMSimple_XH: Developer Documentation for CMSimple_XH</a> を元に解説したものです。<br/>
+ *CMSimple_XH Ver1.7 (2017/09)</p>
+<div class="textblock"><h1><a class="anchor" id="intro"></a>
+はじめに </h1>
+<p>このドキュメントは、コアデザイナーとプラグイン開発者、そしてテンプレートデザイナーを対象としています。<br/></p>
+<h1><a class="anchor" id="architecture"></a>
+システム構成</h1>
+<p>ウェブサイトへのすべてのリクエストは、インストールのルートフォルダのindex.php または言語フォルダのindex.phpに送られます。これらのindex.phpファイルは、変数と定数を定義し、個々の要求に応じて必要なファイルを含む <a class="el" href="cms_8php.html">cms.php</a> を含めるための単なる薄いラッパーです.
+All requests to the website are directed to index.php in the root folder of the installation or to index.php in a language folder. These index.php files are just thin wrappers for including <a class="el" href="cms_8php.html">cms.php</a> which defines variables and constants and includes necessary files according to the individual request.</p>
+<h2><a class="anchor" id="plugins"></a>
+プラグイン</h2>
+<p>プラグインは「プラグインローダー」によって処理されます。この「プラグインローダー」は、プラグインを使用できるようにするために過去の必須な外部コンポーネントでした。CMSimple_XHは、「プラグインローダー」をデフォルトのシステムに統合し、それを拡張して新しいページデータ機能を提供しました。 CMSimple_XH 1.6以降、プラグインローダーはコアにマージされました。それにもかかわらず、プラグインの読み込みとプラグインファイルの編集に関する機能を参照するために、「プラグインローダー」との表現は妥当かと思われます。</p>
+<p>プラグインローダーには、複数の段階のプラグインファイルが含まれており、すべてのプラグインのそれぞれのファイルが含まれています:</p>
+<ul>
+<li>required classes</li>
+<li>configuration and language files</li>
+<li>index.php files</li>
+<li>admin.php files</li>
+</ul>
+<p>プラグインはアルファベット順に処理されます。（CMSimple_XH 1.6より前は順序が不定です）。ただし、この読み込み順序を意図的に変更する為に、プラグイン名をそれぞれ指定することは推奨されません（「zzz」など）。すべてのプラグインがロードされた後に何かをする必要がある場合は、 <a class="el" href="functions_8php.html#aded7e370b5c2c15663bbc474ef0b411c">XH_afterPluginLoading</a> を使用して適切なコールバックを登録します .</p>
+<p>プラグインに関するその他の開発者情報 <a href="http://www.cmsimple-xh.org/wiki/doku.php/developers_manual" target="_blank">Wiki</a>.</p>
+<h2><a class="anchor" id="templates"></a>
+テンプレート</h2>
+<p>通常のページリクエストの最後には、アクティブテンプレートのtemplate.htmファイルが含まれています。これは <a class="el" href="tplfuncs_8php.html">tplfuncs.php</a> で定義されている、いわゆるテンプレートタグである埋め込みPHPを持つHTMLファイルです。</p>
+<p>テンプレートに関するその他の開発者情報: <a href="http://www.cmsimple-xh.org/wiki/doku.php/developers_manual" target="_blank">Wiki</a>.</p>
+<h1><a class="anchor" id="api"></a>
+API</h1>
+<p>CMSimple_XHのAPIの重要な部分は、<a class="el" href="cms_8php.html">cms.php</a> に記述されているグローバル変数で構成されています。すべてのグローバル変数がパブリックAPIの一部であるわけではなく、パブリックとしてタグ付けされたものだけです。さらに、公開変数の多くは、文書化されているように読み取り専用または読み取り/書き込みとして扱う必要があります. </p><h1>このドキュメントの翻訳作業者へ</h1>
+<p>syntaxhighlighterが利用可能です。ただし、全てのページにsyntaxhighlighterは、組み込まれていません。組込まれていない場合は、下記の２つのコードを ***.htmlに追加します</p>
+<p>&lt;/head&gt; の前に<br /><pre class="brush:php;toolbar: false"><script type="text/javascript" src="js/syntaxhighlighter/scripts/XRegExp.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shCore.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shAutoloader.js"></script>
+<link href="js/syntaxhighlighter/styles/shCoreDefault.css"" type="text/css" rel="stylesheet" /></pre>
+</p>
+<p>末尾の&lt;/body&gt;の前に</p>
+<p><pre class="brush:php;toolbar: false"><script>
+SyntaxHighlighter.autoloader
+(
+"applescript            js/syntaxhighlighter/scripts/shBrushAppleScript.js",
+"actionscript3 as3      js/syntaxhighlighter/scripts/shBrushAS3.js",
+"bash shell             js/syntaxhighlighter/scripts/shBrushBash.js",
+"coldfusion cf          js/syntaxhighlighter/scripts/shBrushColdFusion.js",
+"cpp c                  js/syntaxhighlighter/scripts/shBrushCpp.js",
+"c# c-sharp csharp      js/syntaxhighlighter/scripts/shBrushCSharp.js",
+"css                    js/syntaxhighlighter/scripts/shBrushCss.js",
+"delphi pascal          js/syntaxhighlighter/scripts/shBrushDelphi.js",
+"diff patch pas         js/syntaxhighlighter/scripts/shBrushDiff.js",
+"erl erlang             js/syntaxhighlighter/scripts/shBrushErlang.js",
+"groovy                 js/syntaxhighlighter/scripts/shBrushGroovy.js",
+"java                   js/syntaxhighlighter/scripts/shBrushJava.js",
+"jfx javafx             js/syntaxhighlighter/scripts/shBrushJavaFX.js",
+"js jscript javascript  js/syntaxhighlighter/scripts/shBrushJScript.js",
+"perl pl                js/syntaxhighlighter/scripts/shBrushPerl.js",
+"php                    js/syntaxhighlighter/scripts/shBrushPhp.js",
+"text plain             js/syntaxhighlighter/scripts/shBrushPlain.js",
+"py python              js/syntaxhighlighter/scripts/shBrushPython.js",
+"ruby rails ror rb      js/syntaxhighlighter/scripts/shBrushRuby.js",
+"sass scss              js/syntaxhighlighter/scripts/shBrushSass.js",
+"scala                  js/syntaxhighlighter/scripts/shBrushScala.js",
+"sql                    js/syntaxhighlighter/scripts/shBrushSql.js",
+"vb vbnet               js/syntaxhighlighter/scripts/shBrushVb.js",
+"xml xhtml xslt html    js/syntaxhighlighter/scripts/shBrushXml.js"
+);
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+SyntaxHighlighter.all();
+</script>
+</pre></p>
+<p>上記をページに組み込んだのち、syntaxhighlighterの記述に従ってコードを書いてください。例えば</p>
+<p><pre class="brush:php;toolbar: false"><pre class="brush:php;">
+
+
+・・・・
+
+</pre>
+</pre></p>
+<p>&nbsp;</p>
+</div>
+
+
+
+
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+
+
+
+
+
+<script>
+SyntaxHighlighter.autoloader
+(
+"applescript            js/syntaxhighlighter/scripts/shBrushAppleScript.js",
+"actionscript3 as3      js/syntaxhighlighter/scripts/shBrushAS3.js",
+"bash shell             js/syntaxhighlighter/scripts/shBrushBash.js",
+"coldfusion cf          js/syntaxhighlighter/scripts/shBrushColdFusion.js",
+"cpp c                  js/syntaxhighlighter/scripts/shBrushCpp.js",
+"c# c-sharp csharp      js/syntaxhighlighter/scripts/shBrushCSharp.js",
+"css                    js/syntaxhighlighter/scripts/shBrushCss.js",
+"delphi pascal          js/syntaxhighlighter/scripts/shBrushDelphi.js",
+"diff patch pas         js/syntaxhighlighter/scripts/shBrushDiff.js",
+"erl erlang             js/syntaxhighlighter/scripts/shBrushErlang.js",
+"groovy                 js/syntaxhighlighter/scripts/shBrushGroovy.js",
+"java                   js/syntaxhighlighter/scripts/shBrushJava.js",
+"jfx javafx             js/syntaxhighlighter/scripts/shBrushJavaFX.js",
+"js jscript javascript  js/syntaxhighlighter/scripts/shBrushJScript.js",
+"perl pl                js/syntaxhighlighter/scripts/shBrushPerl.js",
+"php                    js/syntaxhighlighter/scripts/shBrushPhp.js",
+"text plain             js/syntaxhighlighter/scripts/shBrushPlain.js",
+"py python              js/syntaxhighlighter/scripts/shBrushPython.js",
+"ruby rails ror rb      js/syntaxhighlighter/scripts/shBrushRuby.js",
+"sass scss              js/syntaxhighlighter/scripts/shBrushSass.js",
+"scala                  js/syntaxhighlighter/scripts/shBrushScala.js",
+"sql                    js/syntaxhighlighter/scripts/shBrushSql.js",
+"vb vbnet               js/syntaxhighlighter/scripts/shBrushVb.js",
+"xml xhtml xslt html    js/syntaxhighlighter/scripts/shBrushXml.js"
+);
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+SyntaxHighlighter.all();
+</script>
+
+
+
+
+</body>
+</html>

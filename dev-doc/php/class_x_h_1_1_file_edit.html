@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CMSimple_XH 開発者ドキュメント: XH\FileEdit クラス</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CMSimple_XH 開発者ドキュメント
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_x_h_1_1_file_edit.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pro-methods">限定公開メンバ関数</a> &#124;
+<a href="#pro-attribs">限定公開変数類</a>  </div>
+  <div class="headertitle">
+<div class="title">XH\FileEdit クラス</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+XH\FileEdit の継承関係図</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_x_h_1_1_file_edit.png" usemap="#XH_5CFileEdit_map" alt=""/>
+  <map id="XH_5CFileEdit_map" name="XH_5CFileEdit_map">
+<area href="class_x_h_1_1_array_file_edit.html" alt="XH\ArrayFileEdit" shape="rect" coords="265,56,432,80"/>
+<area href="class_x_h_1_1_text_file_edit.html" alt="XH\TextFileEdit" shape="rect" coords="708,56,875,80"/>
+<area href="class_x_h_1_1_core_array_file_edit.html" alt="XH\CoreArrayFileEdit" shape="rect" coords="88,112,255,136"/>
+<area href="class_x_h_1_1_plugin_array_file_edit.html" alt="XH\PluginArrayFileEdit" shape="rect" coords="442,112,609,136"/>
+<area href="class_x_h_1_1_core_text_file_edit.html" alt="XH\CoreTextFileEdit" shape="rect" coords="619,112,786,136"/>
+<area href="class_x_h_1_1_plugin_text_file_edit.html" alt="XH\PluginTextFileEdit" shape="rect" coords="796,112,963,136"/>
+<area href="class_x_h_1_1_core_config_file_edit.html" alt="XH\CoreConfigFileEdit" shape="rect" coords="0,168,167,192"/>
+<area href="class_x_h_1_1_core_lang_file_edit.html" alt="XH\CoreLangFileEdit" shape="rect" coords="177,168,344,192"/>
+<area href="class_x_h_1_1_plugin_config_file_edit.html" alt="XH\PluginConfigFileEdit" shape="rect" coords="354,168,521,192"/>
+<area href="class_x_h_1_1_plugin_language_file_edit.html" alt="XH\PluginLanguageFileEdit" shape="rect" coords="531,168,698,192"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a217fd4a8dd108fc20034e5137e0aa9c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_h_1_1_file_edit.html#a217fd4a8dd108fc20034e5137e0aa9c0">form</a> ()</td></tr>
+<tr class="separator:a217fd4a8dd108fc20034e5137e0aa9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2d0298450c91233ce95d8eb92e4f469"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_h_1_1_file_edit.html#ad2d0298450c91233ce95d8eb92e4f469">submit</a> ()</td></tr>
+<tr class="separator:ad2d0298450c91233ce95d8eb92e4f469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+限定公開メンバ関数</h2></td></tr>
+<tr class="memitem:a924dd1ba663486d5129b182240cb31dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_h_1_1_file_edit.html#a924dd1ba663486d5129b182240cb31dd">save</a> ()</td></tr>
+<tr class="separator:a924dd1ba663486d5129b182240cb31dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d2431752894ce30f5b3cd451e3daae5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_x_h_1_1_file_edit.html#a9d2431752894ce30f5b3cd451e3daae5">asString</a> ()</td></tr>
+<tr class="separator:a9d2431752894ce30f5b3cd451e3daae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+限定公開変数類</h2></td></tr>
+<tr class="memitem:aa08d31e08b1c3323522525ab8945b551"><td class="memItemLeft" align="right" valign="top"><a id="aa08d31e08b1c3323522525ab8945b551"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$params</b> = array()</td></tr>
+<tr class="separator:aa08d31e08b1c3323522525ab8945b551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5f770bea919f07d082564fe34f01de4"><td class="memItemLeft" align="right" valign="top"><a id="ae5f770bea919f07d082564fe34f01de4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$plugin</b> = null</td></tr>
+<tr class="separator:ae5f770bea919f07d082564fe34f01de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1465c02fe906262df209d468860ab6a1"><td class="memItemLeft" align="right" valign="top"><a id="a1465c02fe906262df209d468860ab6a1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$caption</b> = null</td></tr>
+<tr class="separator:a1465c02fe906262df209d468860ab6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae51c233184ef25af65109adee1a3386"><td class="memItemLeft" align="right" valign="top"><a id="aae51c233184ef25af65109adee1a3386"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$filename</b> = null</td></tr>
+<tr class="separator:aae51c233184ef25af65109adee1a3386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31b5e89369d3aa408fb569e517f27631"><td class="memItemLeft" align="right" valign="top"><a id="a31b5e89369d3aa408fb569e517f27631"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>$redir</b> = null</td></tr>
+<tr class="separator:a31b5e89369d3aa408fb569e517f27631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock">
+<p class="definition"> <a class="el" href="_file_edit_8php_source.html">FileEdit.php</a> の <a class="el" href="_file_edit_8php_source.html#l00028">28</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">関数詳解</h2>
+<a id="a9d2431752894ce30f5b3cd451e3daae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d2431752894ce30f5b3cd451e3daae5">&#9670;&nbsp;</a></span>asString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">XH\FileEdit::asString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">abstract</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the the file contents as string for saving.</p>
+<dl class="section return"><dt>戻り値</dt><dd>string </dd></dl>
+
+</div>
+</div>
+<a id="a217fd4a8dd108fc20034e5137e0aa9c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217fd4a8dd108fc20034e5137e0aa9c0">&#9670;&nbsp;</a></span>form()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">XH\FileEdit::form </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">abstract</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the form to edit the file contents.</p>
+<dl class="section return"><dt>戻り値</dt><dd>string HTML </dd></dl>
+
+</div>
+</div>
+<a id="a924dd1ba663486d5129b182240cb31dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a924dd1ba663486d5129b182240cb31dd">&#9670;&nbsp;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">XH\FileEdit::save </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Saves the file. Returns whether that succeeded.</p>
+<dl class="section return"><dt>戻り値</dt><dd>bool </dd></dl>
+
+<p class="definition"> <a class="el" href="_file_edit_8php_source.html">FileEdit.php</a> の <a class="el" href="_file_edit_8php_source.html#l00070">70</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad2d0298450c91233ce95d8eb92e4f469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2d0298450c91233ce95d8eb92e4f469">&#9670;&nbsp;</a></span>submit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">XH\FileEdit::submit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">abstract</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Handles the form submission.</p>
+<p>If file could be successfully saved, triggers a redirect. Otherwise writes error message to $e, and returns the edit form.</p>
+<dl class="section return"><dt>戻り値</dt><dd>mixed The HTML resp. void. </dd></dl>
+
+</div>
+</div>
+<hr/>このクラス詳解は次のファイルから抽出されました:<ul>
+<li>cmsimplexh/cmsimple/classes/<a class="el" href="_file_edit_8php_source.html">FileEdit.php</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_x_h.html">XH</a></li><li class="navelem"><a class="el" href="class_x_h_1_1_file_edit.html">FileEdit</a></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

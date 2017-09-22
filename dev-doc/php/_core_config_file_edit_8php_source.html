@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CMSimple_XH 開発者ドキュメント: cmsimplexh/cmsimple/classes/CoreConfigFileEdit.php ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.jpg"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">CMSimple_XH 開発者ドキュメント
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_core_config_file_edit_8php_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">CoreConfigFileEdit.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_x_h.html">XH</a>;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_x_h_1_1_core_config_file_edit.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_x_h_1_1_core_config_file_edit.html">CoreConfigFileEdit</a> <span class="keyword">extends</span> <a class="code" href="class_x_h_1_1_core_array_file_edit.html">CoreArrayFileEdit</a></div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_x_h_1_1_core_config_file_edit.html#a5ab551893abdd0e88e2f28cf62fc1a18">   37</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_x_h_1_1_core_config_file_edit.html#a5ab551893abdd0e88e2f28cf62fc1a18">__construct</a>()</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        global <a class="code" href="cms_8php.html#a3024346bec0edeb42fdee575add2b8b2">$pth</a>, <a class="code" href="cms_8php.html#ab1d468e367dcd8307116d91c70602af7">$cf</a>, <a class="code" href="cms_8php.html#a81aead23034e41971765fe45ac891f0c">$tx</a>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        parent::__construct();</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        $this-&gt;varName = <span class="stringliteral">&#39;cf&#39;</span>;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        $this-&gt;params = array(</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="stringliteral">&#39;form&#39;</span> =&gt; <span class="stringliteral">&#39;array&#39;</span>,</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="stringliteral">&#39;file&#39;</span> =&gt; <span class="stringliteral">&#39;config&#39;</span>,</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="stringliteral">&#39;action&#39;</span> =&gt; <span class="stringliteral">&#39;save&#39;</span></div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        );</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        $this-&gt;redir = <span class="stringliteral">&#39;?file=config&amp;action=array&amp;xh_success=config&#39;</span>;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        $this-&gt;cfg = array();</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        $fn = $pth[<span class="stringliteral">&#39;folder&#39;</span>][<span class="stringliteral">&#39;cmsimple&#39;</span>] . <span class="stringliteral">&#39;metaconfig.php&#39;</span>;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> (is_readable($fn)) {</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            include $fn;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">foreach</span> ($cf as $cat =&gt; $opts) {</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            $this-&gt;cfg[$cat] = array();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">foreach</span> ($opts as $name =&gt; $val) {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <span class="comment">// The following are there for backwards compatibility,</span></div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="comment">// and have to be suppressed in the config form.</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">if</span> ($cat == <span class="stringliteral">&#39;security&#39;</span> &amp;&amp; $name == <span class="stringliteral">&#39;type&#39;</span></div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    || $cat == <span class="stringliteral">&#39;scripting&#39;</span> &amp;&amp; $name == <span class="stringliteral">&#39;regexp&#39;</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    || $cat == <span class="stringliteral">&#39;site&#39;</span> &amp;&amp; $name == <span class="stringliteral">&#39;title&#39;</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    || $cat == <span class="stringliteral">&#39;xhtml&#39;</span></div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                ) {</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    <span class="keywordflow">continue</span>;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                }</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                $omcf = isset($mcf[$cat][$name]) ? $mcf[$cat][$name] : null;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                $hint = isset($tx[<span class="stringliteral">&#39;help&#39;</span>][<span class="stringliteral">&quot;${cat}_$name&quot;</span>])</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    ? $tx[<span class="stringliteral">&#39;help&#39;</span>][<span class="stringliteral">&quot;${cat}_$name&quot;</span>] : null;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                $this-&gt;cfg[$cat][$name] = $this-&gt;option($omcf, $val, $hint);</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span> (empty($this-&gt;cfg[$cat])) {</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                unset($this-&gt;cfg[$cat]);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            }</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div><div class="ttc" id="namespace_x_h_html"><div class="ttname"><a href="namespace_x_h.html">XH</a></div></div>
+<div class="ttc" id="class_x_h_1_1_core_config_file_edit_html"><div class="ttname"><a href="class_x_h_1_1_core_config_file_edit.html">XH\CoreConfigFileEdit</a></div><div class="ttdef"><b>Definition:</b> <a href="_core_config_file_edit_8php_source.html#l00028">CoreConfigFileEdit.php:28</a></div></div>
+<div class="ttc" id="cms_8php_html_ab1d468e367dcd8307116d91c70602af7"><div class="ttname"><a href="cms_8php.html#ab1d468e367dcd8307116d91c70602af7">$cf</a></div><div class="ttdeci">$cf</div><div class="ttdef"><b>Definition:</b> <a href="cms_8php_source.html#l00272">cms.php:272</a></div></div>
+<div class="ttc" id="cms_8php_html_a81aead23034e41971765fe45ac891f0c"><div class="ttname"><a href="cms_8php.html#a81aead23034e41971765fe45ac891f0c">$tx</a></div><div class="ttdeci">$tx</div><div class="ttdef"><b>Definition:</b> <a href="cms_8php_source.html#l00363">cms.php:363</a></div></div>
+<div class="ttc" id="cms_8php_html_a3024346bec0edeb42fdee575add2b8b2"><div class="ttname"><a href="cms_8php.html#a3024346bec0edeb42fdee575add2b8b2">$pth</a></div><div class="ttdeci">$pth</div><div class="ttdef"><b>Definition:</b> <a href="cms_8php_source.html#l00230">cms.php:230</a></div></div>
+<div class="ttc" id="class_x_h_1_1_core_array_file_edit_html"><div class="ttname"><a href="class_x_h_1_1_core_array_file_edit.html">XH\CoreArrayFileEdit</a></div><div class="ttdef"><b>Definition:</b> <a href="_core_array_file_edit_8php_source.html#l00028">CoreArrayFileEdit.php:28</a></div></div>
+<div class="ttc" id="class_x_h_1_1_core_config_file_edit_html_a5ab551893abdd0e88e2f28cf62fc1a18"><div class="ttname"><a href="class_x_h_1_1_core_config_file_edit.html#a5ab551893abdd0e88e2f28cf62fc1a18">XH\CoreConfigFileEdit\__construct</a></div><div class="ttdeci">__construct()</div><div class="ttdef"><b>Definition:</b> <a href="_core_config_file_edit_8php_source.html#l00037">CoreConfigFileEdit.php:37</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_6b95b5fe3d6b4b22ca35af8ba77f8655.html">CMSimple_XH-1.7.0</a></li><li class="navelem"><a class="el" href="dir_8bbbd73143511e01cf2261c51037b44e.html">cmsimplexh</a></li><li class="navelem"><a class="el" href="dir_7b25c77dfdd7c2b512f805f82c615a43.html">cmsimple</a></li><li class="navelem"><a class="el" href="dir_600b3c5a672b6e0aabe6c4a83fcc635d.html">classes</a></li><li class="navelem"><b>CoreConfigFileEdit.php</b></li>
+    <li class="footer">構築:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

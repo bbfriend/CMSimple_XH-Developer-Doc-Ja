@@ -1,0 +1,28 @@
+var adminfuncs_8php =
+[
+    [ "plugin_admin_common", "adminfuncs_8php.html#a7532bf327df77f5a630d73d32e851ea4", null ],
+    [ "pluginMenu", "adminfuncs_8php.html#ae39a44222ea6b934127a3c744f36d5fc", null ],
+    [ "print_plugin_admin", "adminfuncs_8php.html#a4e5cf35db7958b45c4ff770493a6ad80", null ],
+    [ "XH_absoluteUrlPath", "adminfuncs_8php.html#abad77c16d56a4304cc3cf6a9201a74ba", null ],
+    [ "XH_adminJSLocalization", "adminfuncs_8php.html#a4223b25b385d1da97b8a97cd4913deda", null ],
+    [ "XH_adminMenu", "adminfuncs_8php.html#aa32174e0fd966a5b2fa65aced6ea39da", null ],
+    [ "XH_adminMenuItem", "adminfuncs_8php.html#a40f9e66a631b21443c035ee2176f73db", null ],
+    [ "XH_backupsView", "adminfuncs_8php.html#a7090fb65dc3b7c21042d773f4a063dbc", null ],
+    [ "XH_contentEditor", "adminfuncs_8php.html#a2cfd2a5a0702d12fa345f09dadc3ff0e", null ],
+    [ "XH_emptyContents", "adminfuncs_8php.html#aaeee17a9a85aa8fdb89afd2c76719ef4", null ],
+    [ "XH_extraBackup", "adminfuncs_8php.html#a7186d5af58f779286a1e78c654b2a77f", null ],
+    [ "XH_isAccessProtected", "adminfuncs_8php.html#a50d3a9e3434215cb3de1246a4f42a39c", null ],
+    [ "XH_logFileView", "adminfuncs_8php.html#a5c1d29ae557c7fd5c8f048acd9c02376", null ],
+    [ "XH_pluginsView", "adminfuncs_8php.html#ae6ec54a0dd87efe663bfa2ac13098f91", null ],
+    [ "XH_pluginVersion", "adminfuncs_8php.html#afca70c3ff60e5c30dd2a6154dc6dc7c7", null ],
+    [ "XH_registerPluginMenuItem", "adminfuncs_8php.html#ac02056a32b0eb4befb4b42d1e569fb3c", null ],
+    [ "XH_registerStandardPluginMenuItems", "adminfuncs_8php.html#a21bd112df95dcc3f98f2469b0d62d57b", null ],
+    [ "XH_restore", "adminfuncs_8php.html#a402efc876adc4332c6583c83db337af6", null ],
+    [ "XH_saveContents", "adminfuncs_8php.html#aac8e1040a44169a40d8fa607f635826a", null ],
+    [ "XH_saveEditorContents", "adminfuncs_8php.html#a4616ba50efbff3904fa8b8c7173603a6", null ],
+    [ "XH_settingsView", "adminfuncs_8php.html#a728de2e214f9f8ccd6fbf00697de933c", null ],
+    [ "XH_sysinfo", "adminfuncs_8php.html#a0dc81e54889c042685ec124545de3973", null ],
+    [ "XH_systemCheck", "adminfuncs_8php.html#ac60cf42f48a4f1ecb8cabf7725235363", null ],
+    [ "XH_systemCheckLi", "adminfuncs_8php.html#a40513fd74fc30f1f1830081718794138", null ],
+    [ "XH_wantsPluginAdministration", "adminfuncs_8php.html#af75adac12a6a68bad3eebf0fb9766f5c", null ]
+];
