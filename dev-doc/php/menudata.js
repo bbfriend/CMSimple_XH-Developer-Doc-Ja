@@ -99,4 +99,11 @@ var menudata={children:[
 {text:"$",url:"globals_vars.html#index_0x24"},
 {text:"c",url:"globals_vars.html#index_c"},
 {text:"p",url:"globals_vars.html#index_p"},
-{text:"x",url:"globals_vars.html#index_x"}]}]}]}]}
+{text:"x",url:"globals_vars.html#index_x"}]}
+]}]},
+{text:"◎参考資料",url:"ja_additions.html",children:[
+{text:"PSR-0 – オートローディング規約",url:"ja_psr-0.html"},
+{text:"PSR-1 – 基本コーディング規約",url:"ja_psr-1-basic-coding-standard.html"},
+{text:"PSR-2 – コーディングスタイルガイド",url:"ja_psr-2-coding-style-guide.html"},
+{text:"PSR-4 – 新オートローディング規約",url:"ja_psr-4.html"}]}
+]}

@@ -1,0 +1,9 @@
+h4
+{
+    background-color: #ffff38;
+}
+
+nav ul a, nav ul a:visited, nav ul a:active {
+    color: #0095dd;
+    font-size: 150%;
+}

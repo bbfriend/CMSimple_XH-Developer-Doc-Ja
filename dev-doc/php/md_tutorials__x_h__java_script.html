@@ -96,16 +96,19 @@ $(document).ready(function(){initNavTree('index.html','');});
 <ul><li class="level1"><a href="#jquery">jQuery</a></li>
 </ul>
 </div>
-<div class="textblock"><p>CMSimple_XH is mainly developed in PHP. To 
-improve the user experience browser-side scripting is necessary; this is
- done directly in the ECMAScript implementations of the browsers (i.e. 
-no precompiled language such as CoffeeScript or TypeScript is used). 
-This is documented in the separate <a href="../js/index.html">JavaScript Documentation</a>.</p>
+<div class="textblock">
+  <p>CMSimple_XHは主にPHPで開発されています。 UX（ユーザーエクスペリエンス）を向上させるには、ブラウザ側のスクリプトが必要です。 これはブラウザのECMAScript実装で直接行われます（つまり、CoffeeScriptやTypeScriptなどのプリコンパイルされた言語は使用されません）。 <br />
+  これは別の<a href="../js/index.html">JavaScriptドキュメント</a>に記載されています 。<br />
+</p>
 <h1><a class="anchor" id="jquery"></a>
 jQuery</h1>
-<p>Due to the fact that several major JavaScript frameworks may not be compatible with each other and the popularity of <a href="http://jquery.com/">jQuery</a>
- this is the only JavaScript framework that is officially endorsed by 
-CMSimple_XH. All CMSimple_XH extension writers are advised to use <a href="http://www.cmsimple-xh.org/wiki/doku.php/extend:jquery4cmsimple">jQuery4CMSimple</a>, if they want to use jQuery, jQueryUI and/or jQuery plugins. </p>
+<p><a href="http://jquery.com/" target="_blank">jQuery</a> はCMSimple_XHによって正式に承認された唯一のJavaScriptフレームワークです。<br />
+すべてのCMSimple_XH拡張ライターは、jQuery、jQueryUIおよび/またはjQueryプラグインを使用する場合は、 <a href="http://www.cmsimple-xh.org/wiki/doku.php/extend:jquery4cmsimple" target="_blank">jQuery4CMSimple</a> を使用することをお勧めします。<br />
+　※いくつかの主要なJavaScriptフレームワークがお互いに互換性にまだ不安があります。<br />
+　※jQuery4CMSimple　は、コアに　plugins/jquery　として組み込まれてます。<br />
+　　　コンフリクトや多重読み込みを防止する　単純なEnqueue System　が備わってます<br />
+　　　<br />
+</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

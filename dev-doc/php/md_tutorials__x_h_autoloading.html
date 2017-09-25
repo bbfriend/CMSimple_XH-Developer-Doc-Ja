@@ -96,31 +96,48 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Class Autoloading </div>  </div>
+<div class="title">クラスのオートローディング Autoloading </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#example">Example </a></li>
-<li class="level1"><a href="#underscores">Underscores in Namespaces and Class Names </a></li>
+<ul>
+<li class="level1"><a href="#example">例 </a></li>
+<li class="level1"><a href="#underscores">名前空間とクラス名におけるアンダースコア </a></li>
 <li class="level1"><a href="#case">Case </a></li>
 </ul>
 </div>
-<div class="textblock"><p>As of CMSimple_XH 1.7.0 the core uses <a href="http://php.net/manual/en/language.oop5.autoload.php">class autoloading</a>, and the autoloader (<code><a class="el" href="functions_8php.html#aa88bdd86a071bd08985b888e7158d28c">XH_autoload()</a></code>) can also be used by plugins. It works very similar to <a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a> , but an adjustment has been made to better suite the tradionational folder structure of CMSimple_XH, namely that the <code>&lt;Vendor Name&gt;</code> has actually to be the <code>&lt;Plugin Name&gt;</code> (or <code><a class="el" href="namespace_x_h.html">XH</a></code> in case of core classes), which maps to the <code>classes/</code> folder of the plugin.</p>
+<div class="textblock">
+  <p>CMSimple_XH 1.7.0以降、「クラスのオートローディング：<a href="http://php.net/manual/ja/language.oop5.autoload.php">class autoloading</a> 」を、CMSimple_XHのコアの関数： <a href="functions_8php.html#aa88bdd86a071bd08985b888e7158d28c">XH_autoload()</a> に組み込んでます。<br />
+    プラグインでは、この <a href="functions_8php.html#aa88bdd86a071bd08985b888e7158d28c">XH_autoload()</a>　の使用をおススメします。<br />
+    <a href="functions_8php.html#aa88bdd86a071bd08985b888e7158d28c">XH_autoload()</a> は<a href="http|//www.php-fig.org/psr/psr-0/">PSR-0</a> に準拠したCMSimple_XHの基本的なフォルダ構造に合わせてます。つまり&lt;Vendor Name&gt;が実際に&lt;Plugin Name&gt; （またはコアクラスの場合はXH ）になっています。これはプラグインの<strong>classes/ フォルダ</strong>にマップされます。</p>
+  <p>参考1）XH_autoload() がオートローダー用関数として登録されてる
+  <pre class="brush:php;">spl_autoload_register('XH_autoload');//cmsimple/cms.php Lin245 (ver1.7)</pre><br />
+    参考2）<a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a> ：オートローディング規約 <br />
+    As of CMSimple_XH 1.7.0 the core uses <a href="http://php.net/manual/en/language.oop5.autoload.php">class autoloading</a>, and the autoloader (<code><a class="el" href="functions_8php.html#aa88bdd86a071bd08985b888e7158d28c">XH_autoload()</a></code>) can also be used by plugins. It works very similar to <a href="http://www.php-fig.org/psr/psr-0/">PSR-0</a> , but an adjustment has been made to better suite the tradionational folder structure of CMSimple_XH, namely that the <code>&lt;Vendor Name&gt;</code> has actually to be the <code>&lt;Plugin Name&gt;</code> (or <code><a class="el" href="namespace_x_h.html">XH</a></code> in case of core classes), which maps to the <code>classes/</code> folder of the plugin.</p>
 <h1><a class="anchor" id="example"></a>
-Example </h1>
-<p>Let's consider a fictious plugin named Foo with the following 
-filesystem structure (irrelevant files and folders ommitted for 
-brevity):</p>
-<div class="fragment"><div class="line">foo/</div><div class="line">    classes/</div><div class="line">        bar/</div><div class="line">            Baz.php</div><div class="line">        Qux.php</div></div><!-- fragment --><p>This plugin declares two classes, namely <code>Baz</code> and <code>Qux</code>. To refer to these classes you can use the fully qualified class name, i.e. <code>\Foo\Bar\Baz</code> and <code>\Foo\Qux</code>, respectively, or any short form which resolves to these fully qualified class names.</p>
+例 </h1>
+<p>例として　下記のファイル構造をもつ Fooプラグイン（ plugins/foo/ )で考えます。・・簡潔にするために無関係なファイルやフォルダは省略してます<br />
+  Let's consider a fictious plugin named Foo with the following 
+  filesystem structure (irrelevant files and folders ommitted for 
+  brevity):</p>
+<div class="fragment"><div class="line">foo/</div><div class="line">    classes/</div><div class="line">        bar/</div><div class="line">            Baz.php</div><div class="line">        Qux.php</div></div><!-- fragment --><p>このプラグインはBazとQuxという2つのクラスを宣言します。<br />
+これらのクラスを参照するには、完全修飾クラス名（ \Foo\Bar\Baz および \Foo\Qux ）、またはこれらの完全修飾クラス名に解決される短い形式を使用できます。<br />
+This plugin declares two classes, namely <code>Baz</code> and <code>Qux</code>. To refer to these classes you can use the fully qualified class name, i.e. <code>\Foo\Bar\Baz</code> and <code>\Foo\Qux</code>, respectively, or any short form which resolves to these fully qualified class names.</p>
 <h1><a class="anchor" id="underscores"></a>
-Underscores in Namespaces and Class Names </h1>
-<p>Note that the class loader also supports old style pseudo namespacing with underscores (<code>_</code>), which are treated identical to proper namespace separators, and that the autoloader creates <code>class_alias()</code>es. So with regard to the example Foo plugin above, you can also use <code>Foo_Bar_Baz</code> and <code>Foo_Qux</code>
+  名前空間とクラス名におけるアンダースコア: </h1>
+<p>古いスタイルの擬似名前空間のアンダースコア（ _ ）もサポートしています。<br />
+  クラスローダーは、適切な名前空間区切り文字と同じ扱いで、オートローダー用関数（ <a href="functions_8php.html#aa88bdd86a071bd08985b888e7158d28c">XH_autoload()</a> ）　がclass_alias() を作成します。古いスタイルの擬似名前空間のアンダースコア（ _ ）もサポートしています。 <br />
+  上の例のFooプラグインに関しては、クラス名として Foo_Bar_Baz と Foo_Qux　を使用することもできます。 <br />
+  これは後方互換性を目的としています。特に、CMSimple_XH 1.6では名前空間を使用していないコアクラスが対象です。 <br />
+  新しい開発では、適切な名前空間を使用することをお勧めします。<br />
+  Note that the class loader also supports old style pseudo namespacing with underscores (<code>_</code>), which are treated identical to proper namespace separators, and that the autoloader creates <code>class_alias()</code>es. So with regard to the example Foo plugin above, you can also use <code>Foo_Bar_Baz</code> and <code>Foo_Qux</code>
  as class names. This is meant for backward compatibility purposes, most
  notably for core classes which didn't use namespaces in CMSimple_XH 
 1.6. For new developments proper namespacing is recommended.</p>
 <h1><a class="anchor" id="case"></a>
 Case </h1>
-<p>To avoid issues regarding the case (in)sensitivity of different file 
+<p>異なるファイルシステムの大文字と小文字の区別についての問題を避けるためには、クラス名がPHPでは大文字と小文字を区別していなくても、宣言されているファイルの名前と全く同じようにすべてのクラス名を記述する必要があります。 ただし、名前空間の名前は小文字バリアントにマップされるため、 classes/　以下のサブフォルダは小文字にする必要があります<br />
+  To avoid issues regarding the case (in)sensitivity of different file 
 systems, you have to write all class names exactly like the name of the 
 file they're declared in, even though class names are case insensitive 
 in PHP. The names of Namespaces, however, are mapped to the lower case 

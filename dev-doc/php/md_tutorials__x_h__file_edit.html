@@ -102,39 +102,79 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div>
 <div class="textblock"><h1><a class="anchor" id="intro"></a>
 Introduction </h1>
-<p>The FileEdit class hierarchie is responsible for the handling of the 
+<p><a href="class_x_h_1_1_file_edit.html">FileEditクラス階層 </a>は、バックエンドのファイルの編集を処理します。 その実装は、 テンプレートメソッドパターンを頻繁に使用します 。<br />
+2つの主要なブランチは<a href="class_x_h_1_1_text_file_edit.html">TextFileEdit</a>　と <a href="class_x_h_1_1_array_file_edit.html">ArrayFileEdit</a>　です。<br />
+  The FileEdit class hierarchie is responsible for the handling of the 
 editing of files in the back-end. Its implementation makes heavy use of 
 the <a href="http://en.wikipedia.org/wiki/Template_method_pattern">template method pattern</a>. The two main branches are TextFileEdit and ArrayFileEdit.</p>
 <h2><a class="anchor" id="textfileedit"></a>
 TextFileEdit </h2>
-<p>The predefined concrete subclasses of TextFileEdit offer a simple textarea to edit the content of a text file.</p>
+<p><a href="class_x_h_1_1_text_file_edit.html">TextFileEdit </a>のあらかじめ定義されたサブクラスは、テキストファイルの内容を編集するためのシンプルなテキストエリアを提供します<br />
+  The predefined concrete subclasses of TextFileEdit offer a simple textarea to edit the content of a text file.</p>
 <h2><a class="anchor" id="arrayfileedit"></a>
 ArrayFileEdit </h2>
-<p>This branch offers editing of files storing data in an array 
+<p>このブランチでは、データを格納するファイルを配列構造で編集できます。 定義済みのサブクラスは、コアとプラグインの構成オプションと言語文字列を格納するために使用される2次元のPHP配列を処理します。 生成されたフォームはカテゴリのオプションをグループ化します。 これらのオプションは、次のタイプを持つことができます。<br />
+  これらのタイプは、ファイル metaconfig.php で指定できます。　例えば　<a href="metaconfig_8php_source.html">CMS設定のmetaconfig.php</a><br />
+  This branch offers editing of files storing data in an array 
 structure. The predefined subclasses handle two- dimensional PHP arrays,
  which are used to store the configuration options and language strings 
 of the core and plugins. The generated forms group the options in 
 categories. The options can have the following types, which can be 
 specified in a file metaconfig.php.</p>
 <ul>
-<li><em>string</em>: a rather short text (represented as text input)</li>
-<li><em>text</em>: a text of arbitrary length (represented as textarea)</li>
-<li><em>bool</em>: a boolean value (represented as checkbox)</li>
-<li><em>enum</em>: one of several fixed values (represented as selectlist)</li>
-<li><em>xenum</em>: a text with suggestions of several fixed values (represented as text input with datalist)</li>
-<li><em>function</em>: one of several dynamic values (represented as selectlist)</li>
-<li><em>xfunction</em>: a text with suggestions of several dynamic values (represented as text input with datalist)</li>
-<li><em>hidden</em>: a hidden text field</li>
-<li><em>random</em>: a hidden random value that is regenerated on each save</li>
+<li><em>string</em>: 1行テキストエリア</li>
+<li><em>text</em>: 任意の長さのテキスト（textarea）</li>
+<li><em>bool</em>: ブール値（チェックボックス）</li>
+<li><em>enum</em>: いくつかの固定値の1つ（selectリスト）</li>
+<li><em>xenum</em>: いくつかの固定値の提案を含むテキスト（datalistでテキスト入力として表現される）a text with suggestions of several fixed values (represented as text input with datalist)</li>
+<li><em>function</em>: いくつかの動的値の1つ（selectlistとして表される）one of several dynamic values (represented as selectlist)</li>
+<li><em>xfunction</em>:いくつかの動的値の提案を含むテキスト（datalistのテキスト入力として表されます） a text with suggestions of several dynamic values (represented as text input with datalist)</li>
+<li><em>hidden</em>: ：隠しテキストフィールドa hidden text field</li>
+<li><em>random</em>: 各保存時に再生成される隠し乱数値 a hidden random value that is regenerated on each save</li>
 </ul>
 <h1><a class="anchor" id="usage"></a>
-Usage </h1>
-<p>To display the edit form ::form() has to be called; to handle the form submission ::submit() has to be called. For instance:</p>
-<div class="fragment"><div class="line">require_once <a class="code" href="cms_8php.html#a3024346bec0edeb42fdee575add2b8b2">$pth</a>[<span class="stringliteral">'folder'</span>][<span class="stringliteral">'classes'</span>] . <span class="stringliteral">'FileEdit.php'</span>;</div><div class="line"></div><div class="line">$editor = <span class="keyword">new</span> XH_CoreConfigFileEdit();</div><div class="line"><span class="keywordflow">if</span> ($save) {</div><div class="line">    <a class="code" href="cms_8php.html#ac6c49291f92291a3cece8066d68e5f5e">$o</a> .= $editor-&gt;submit();</div><div class="line">} <span class="keywordflow">else</span> {</div><div class="line">    <a class="code" href="cms_8php.html#ac6c49291f92291a3cece8066d68e5f5e">$o</a> .= $editor-&gt;form();</div><div class="line">}</div></div><!-- fragment --><p>By
+使い方 </h1>
+<p>編集フォームを表示するには:: form（）を呼び出す必要があります。 フォームのsubmission :: submit（）を呼び出す必要があります。 <br />
+  例えば<br />
+  To display the edit form ::form() has to be called; to handle the form submission ::submit() has to be called. For instance:</p>
+<p>
+<pre class="brush:php;">
+require_once $pth['folder']['classes'] . 'FileEdit.php';
+$editor = new XH_CoreConfigFileEdit();
+if ($save) {
+    $o .= $editor->submit();
+} else {
+    $o .= $editor->form();
+}
+</pre>
+</p><!-- fragment --><p>階層の適切なクラスを拡張することによって、オンラインで編集可能な他のフォーマットでも他のファイルを作成することが可能です。 <br />
+  例：<br />
+  By
  means of extending an appropriate class of the hierarchy, it is 
 possible to make other files even in other formats editable online. An 
 example:</p>
-<div class="fragment"><div class="line">require_once <a class="code" href="cms_8php.html#a3024346bec0edeb42fdee575add2b8b2">$pth</a>[<span class="stringliteral">'folder'</span>][<span class="stringliteral">'classes'</span>] . <span class="stringliteral">'FileEdit.php'</span>;</div><div class="line"></div><div class="line"><span class="keyword">class </span>MyTextFileEdit <span class="keyword">extends</span> XH_TextFileEdit</div><div class="line">{</div><div class="line">    <span class="keyword">function</span> MyTextFileEdit()</div><div class="line">    {</div><div class="line">        $this-&gt;filename = <span class="stringliteral">'path/of/the/file'</span>;</div><div class="line">        $this-&gt;params = array(<span class="stringliteral">'what'</span> =&gt; <span class="stringliteral">'my_file'</span>, <span class="stringliteral">'action'</span> =&gt; <span class="stringliteral">'save'</span>);</div><div class="line">        $this-&gt;redir = <span class="stringliteral">"?what=my_file&amp;action=edit"</span>;</div><div class="line">        $this-&gt;textareaName = <span class="stringliteral">'my_textarea'</span>;</div><div class="line">        parent::XH_TextFileEdit();</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keywordflow">if</span> (isset($_REQUEST[<span class="stringliteral">'what'</span>]) &amp;&amp; $_REQUEST[<span class="stringliteral">'what'</span>] == <span class="stringliteral">'my_file'</span>) {</div><div class="line">    $fileEditor = <span class="keyword">new</span> MyTextFileEdit();</div><div class="line">    <span class="keywordflow">if</span> ($_REQUEST[<span class="stringliteral">'action'</span>] == <span class="stringliteral">'save'</span>) {</div><div class="line">        <a class="code" href="cms_8php.html#ac6c49291f92291a3cece8066d68e5f5e">$o</a> .= $fileEditor-&gt;submit();</div><div class="line">    } <span class="keywordflow">else</span> {</div><div class="line">        <a class="code" href="cms_8php.html#ac6c49291f92291a3cece8066d68e5f5e">$o</a> .= $fileEditor-&gt;form();</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --> </div></div><!-- contents -->
+<pre class="brush:php;">
+require_once $pth['folder']['classes'] . 'FileEdit.php';
+class MyTextFileEdit extends XH_TextFileEdit
+{
+    function MyTextFileEdit()
+    {
+        $this->filename = 'path/of/the/file';
+        $this->params = array('what' => 'my_file', 'action' => 'save');
+        $this->redir = "?what=my_file&action=edit";
+        $this->textareaName = 'my_textarea';
+        parent::XH_TextFileEdit();
+    }
+}
+if (isset($_REQUEST['what']) && $_REQUEST['what'] == 'my_file') {
+    $fileEditor = new MyTextFileEdit();
+    if ($_REQUEST['action'] == 'save') {
+        $o .= $fileEditor->submit();
+    } else {
+        $o .= $fileEditor->form();
+    }
+}
+</pre><!-- fragment --> </div></div><!-- contents -->
 <!-- start footer part -->
 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

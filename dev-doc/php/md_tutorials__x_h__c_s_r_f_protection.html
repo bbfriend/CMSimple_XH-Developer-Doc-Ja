@@ -92,81 +92,87 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">CSRF Protection </div>  </div>
+<div class="title">CSRF 攻撃からの保護 </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
-<ul><li class="level1"><a href="#usage">Usage </a></li>
-<li class="level1"><a href="#stronger-protection">Stronger Protection </a></li>
-<li class="level1"><a href="#external-scripts">External Scripts </a></li>
+<ul>
+<li class="level1"><a href="#usage">使い方 </a></li>
+<li class="level1"><a href="#stronger-protection">強力な保護 </a></li>
+<li class="level1"><a href="#external-scripts">外部スクリプト </a></li>
 </ul>
 </div>
-<div class="textblock"><p>According to <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">Wikipedia</a>: </p><blockquote class="doxtable">
-<p>CSRF (Cross-site request forgery) is a type of malicious exploit of a
- website whereby unauthorized commands are transmitted from a user that 
-the website trusts. </p>
+<div class="textblock">
+  <p><a href="https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AD%E3%82%B9%E3%82%B5%E3%82%A4%E3%83%88%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%AA" target="_blank">Wikipedia</a> によると</p><blockquote class="doxtable">
+<p>CSRF (Cross-site request forgery：クロスサイトリクエストフォージェリ)は、Webサイトに、信頼するユーザーから不正なコマンド（悪意のある攻撃を行う形式）が送信される攻撃方法です</p>
 </blockquote>
-<p>Regarding CMSimple_XH this user is typically the administrator, who 
-could be tricked to trigger a forged HTML request while being logged in 
-to his website. This way an attacker can potentially do anything the 
-admin is allowed to do, e.g. changing the configuration settings and 
-modifying the template. While the risk of a CSRF attack may be low for a
- CMSimple_XH website, the severity would be very high, so it is 
-reasonable to take precautions.</p>
-<p>The CSRF protection of CMSimple_XH is based on randomly created 
-128bit values (aka. tokens) which are placed on each respective form and
- are stored in the user's session data. On form submission the tokens 
-are compared, and if they are not equal, the form submission is 
-rejected. The tokens are renewed for each session, so an attacker who 
-wants to forge a form has to &lt;emphasis&gt;guess&lt;/emphasis&gt; the 
-currently expected token, what makes the success of an attack highly 
-unlikely.</p>
-<p>For now, the CSRF protection functionality is made available as a global object, <a class="el" href="cms_8php.html#a022468ab9e95e63bbd1570bb56616e8e">$_XH_csrfProtection</a>; this is quite likely to change in a future version.</p>
+<p>CMSimple_XHに関しては、狙われるユーザーは管理者であり、管理者がウェブサイトにログインしている間に偽造されたHTMLリクエストをトリックすることができます。 このようにして、攻撃者は、管理者が許可していることをすべて行うことができます。例えば、設定の変更やテンプレートの変更などが可能です。 CSRF攻撃のリスクはCMSimple_XHのWebサイトでは低いかもしれませんが、その重大度は非常に高いので、予防措置を講じることは妥当です。<br />
+</p>
+<p>CMSimple_XHのCSRF保護は、それぞれのフォームに配置され、ユーザーのセッションデータに格納されているランダムに作成された128ビット値（別名トークン）に基づいています。 フォーム提出時に、トークンが比較され、等しくない場合、フォーム提出は拒否されます。 トークンはセッションごとに更新されるため、フォームを偽造したい攻撃者は、現在予想されているトークンを&lt;emphasis&gt;推測&lt;/ emphasis&gt;しなければなりません。<br />
+</p>
+<p>今のところ、CSRF保護機能はグローバルオブジェクト<a href="cms_8php.html#a022468ab9e95e63bbd1570bb56616e8e">$ _XH_csrfProtection</a>　として利用可能になります。 これは将来のバージョンではかなり変更される可能性があります。<br />
+</p>
 <h1><a class="anchor" id="usage"></a>
-Usage </h1>
-<p>Every form which has to be protected against CSRF attacks has to be 
-extended by a hidden input element which can be inserted by calling <code><a class="el" href="class_x_h_1_1_c_s_r_f_protection.html#a03cc85dba14fb59b3e816388b871087a">XH::CSRFProtection::tokenInput()</a></code>, e.g.:</p>
-<div class="fragment"><div class="line">&lt;form action="..." method="post"&gt;</div><div class="line"></div><div class="line">&lt;?php echo $_XH_csrfProtection-&gt;tokenInput();?&gt;</div><div class="line">&lt;/form&gt;</div></div><!-- fragment --><p>On form submission the tokens have to be checked by calling <code><a class="el" href="class_x_h_1_1_c_s_r_f_protection.html#ace0277a41032653138d9a8a5023a7a5c">XH::CSRFProtection::check()</a></code>.
- If the tokens do not match, script execution will be immediately 
-terminated with an appropriate message. Giving a clear indication of the
- error is reasonable in this case, as the message will not be seen by 
-the attacker, but by the administrator, who can easily conclude that 
-somebody attempted a CSRF attack against his website. An example of the 
-check:</p>
-<div class="fragment"><div class="line">if (isset($_POST['my_form'])) {</div><div class="line">    $_XH_csrfProtection-&gt;check();</div><div class="line">    // processing form submission</div><div class="line">}</div></div><!-- fragment --><p>Basically
- that's all. The details of creating new CSRF tokens when required and 
-storing the latest token in the session are handled by CMSimple_XH. 
-Everything is supposed to work fine, even if multiple forms with CSRF 
-protection will be emitted for a single document (aka. CMSimple_XH 
-page).</p>
-<p>The complete CSRF protection is already in place for the core of 
-CMSimple_XH and the administration forms of plugins, which are handled 
-by <code><a class="el" href="adminfuncs_8php.html#a7532bf327df77f5a630d73d32e851ea4">plugin_admin_common()</a></code>. Other forms require to add CSRF protection in the way described above.</p>
+使い方 </h1>
+<p>CSRF攻撃から保護されなければならないすべてのフォームは、隠された入力要素によって拡張されなければなりません。<br />
+  隠された入力要素は、 <a href="class_x_h_1_1_c_s_r_f_protection.html#a03cc85dba14fb59b3e816388b871087a">XH::CSRFProtection::tokenInput()</a>　を呼び出すことによって挿入できます。<br />
+  例）送信側</p>
+<p>
+<pre class="brush:php;">&lt;form action=&quot;...&quot; method=&quot;post&quot;&gt;
+....
+&lt;?php echo $_XH_csrfProtection-&gt;tokenInput();?&gt;
+&lt;/form&gt;</pre>
+</p><p>フォームの受け側には、 XH::CSRFProtection::check()　呼び出すことによってトークンをチェックする必要があります。 <br />
+  トークンが一致しない場合、スクリプトの実行はすぐに適切なメッセージで終了します。 この場合、メッセージは攻撃者には見えないが、誰かが自分のWebサイトに対してCSRF攻撃を試みたと簡単に結論づけることができる管理者が、このエラーを明確に示すことは合理的です。 <br />
+  受け側の例：</p>
+<p>
+<pre class="brush:php;">
+if (isset($_POST['my_form'])) {
+    $_XH_csrfProtection->check();
+    // processing form submission
+}
+</pre>
+</p><p>基本的には全てに必要です。 新しいCSRFトークンの作成や、セッションに最新のトークンを格納する作業は、CMSimple_XHによって処理されます。<br />
+単一のドキュメント（別名CMSimple_XHページ）に対してCSRF保護の複数のフォームが発行されたとしても、すべてが正常に動作するはずです。<br />
+</p>
+<p>管理フォームには、CMSimple_XHのコアと <a href="adminfuncs_8php.html#a7532bf327df77f5a630d73d32e851ea4">plugin_admin_common()</a> によってすでに用意されています。 <br />
+  他の形態では、上記の方法でCSRF保護を追加する必要があります。<br />
+</p>
 <h1><a class="anchor" id="stronger-protection"></a>
-Stronger Protection </h1>
-<p>While a common token for each session gives reasonable protection 
+  強力な保護 </h1>
+<p>CSRF攻撃を受けても各セッションの共通のトークンが合理的な保護を提供しますが、上記は、各要求の新しいトークンなので更に安全です。 <br />
+  しかし、後者には、Ajax、別のウィンドウ、複数のブラウザタブに関するいくつかの制限があります。これは、送信可能なフォームに古いトークンがまだ存在しているにもかかわらずトークンが更新される可能性があるからです。 したがって、トークンをセッションごとに1回更新するためのより簡単で柔軟なアプローチを採用することに決めました<br />
+  While a common token for each session gives reasonable protection 
 againgst CSRF attacks, a new token for each request is even more secure.
  However, the latter has several limitations regarding Ajax, separate 
 windows and multiple browser tabs, as these might renew the token 
 despite the old token still being present on forms which should be 
 submittable. Therefore we have decided to stick with the more foolproof 
 and flexible approach to renew the token once per session.</p>
-<p>The <code><a class="el" href="class_x_h_1_1_c_s_r_f_protection.html">XH::CSRFProtection</a></code>
- class, however, allows you to handle your own CSRF token and to choose 
-whether this is renewed once per session of per request. To do so create
- your own instance of the class and pass it an own key name and whether 
-you want a new token for each request. In addition to the handling 
-explained above, one has to call <code><a class="el" href="class_x_h_1_1_c_s_r_f_protection.html#a8826337c781700ed44d6a84e1b1cd730">XH::CSRFProtection::store()</a></code> to store the CSRF token in the session variable at the end of the request. An outline:</p>
-<div class="fragment"><div class="line">require_once $pth['folder']['classes'] . 'CSRFProtection.php';</div><div class="line">$myCsrfProtection = new XH_CSRFProtection('my_csrf_key', true);</div><div class="line">if (!isset($_POST[...])) {</div><div class="line">    echo '&lt;form ...&gt;';</div><div class="line">    // emit form input elements</div><div class="line">    echo $myCsrfProtection-&gt;tokenInput();</div><div class="line">    echo '&lt;/form&gt;';</div><div class="line">    $myCsrfProtection-&gt;store();</div><div class="line">} else {</div><div class="line">    $myCsrfProtection-&gt;check();</div><div class="line">    // processing of form submission</div><div class="line">}</div></div><!-- fragment --><h1><a class="anchor" id="external-scripts"></a>
-External Scripts </h1>
-<p>Sometimes a plugin requests an "external" script, i.e. does not 
-request an index.php of the CMSimple_XH installation. In this case you 
-can't use the <code><a class="el" href="class_x_h_1_1_c_s_r_f_protection.html">XH::CSRFProtection</a></code>
- class at all, because this class depends on variables, constants etc. 
-which will be set up by CMSimple_XH. You might get the class to work 
-properly, but the definition of the class might change in the next 
-version. So you're better off to implement your own CSRF protection in 
-this case. </p>
+<p>　 <a href="class_x_h_1_1_c_s_r_f_protection.html">XH::CSRFProtection クラス</a>では、独自のCSRFトークンを処理し、リクエストごとにセッションごとに1回更新するかどうかを選択できます。 これを行うには、クラスの独自のインスタンスを作成し、独自のキー名と、各要求に対して新しいトークンをを渡します。 <br />
+  上記で説明した処理に加えて、要求終了時にセッション変数にCSRFトークンを格納する <a href="class_x_h_1_1_c_s_r_f_protection.html#a8826337c781700ed44d6a84e1b1cd730">XH::CSRFProtection::store()</a> を呼び出す必要 があります。 <br />
+  概要：</p>
+<p>
+<pre class="brush:php;">
+require_once $pth['folder']['classes'] . 'CSRFProtection.php';
+$myCsrfProtection = new XH_CSRFProtection('my_csrf_key', true);
+if (!isset($_POST[...])) {
+    echo '<form ...>';
+    // emit form input elements
+    echo $myCsrfProtection->tokenInput();
+    echo '</form>';
+    $myCsrfProtection->store();
+} else {
+    $myCsrfProtection->check();
+    // processing of form submission
+}
+</pre>
+</p>
+<h1><a class="anchor" id="external-scripts"></a>
+外部スクリプト </h1>
+<p>プラグインが「外部」スクリプトを要求することがあります。つまり、CMSimple_XHインストールのindex.phpを要求しません。 <br />
+  この場合、 <a href="class_x_h_1_1_c_s_r_f_protection.html">XH::CSRFProtection クラス</a>はまったく使用できません。このクラスは、CMSimple_XHによって設定される変数、定数などに依存するためです。 クラスが正しく動作するようになるかもしれませんが、クラスの定義は次のバージョンで変更される可能性があります。 この場合、あなた自身のCSRF保護を実装する方がよいでしょう。 <br />
+</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 
