@@ -1,10 +1,6 @@
 var NAVTREE =
 [
   [ "CMSimple_XH 開発者ドキュメント", "index.html", [
-    [ "クラスのオートローダー", "md_tutorials__x_h_autoloading.html", null ],
-    [ "CSRF保護", "md_tutorials__x_h__c_s_r_f_protection.html", null ],
-    [ "FileEditクラス階層", "md_tutorials__x_h__file_edit.html", null ],
-    [ "JavaScript", "md_tutorials__x_h__java_script.html", "java_script" ],
     [ "todo一覧", "todo.html", null ],
     [ "非推奨一覧", "deprecated.html", null ],
     [ "名前空間", null, [
@@ -28,7 +24,11 @@ var NAVTREE =
         [ "変数", "globals_vars.html", null ]
       ] ]
     ] ],
-    [ "◎参考資料", "ja_additions.html", [
+    [ "◎追加資料", "pages_add.html", [
+        [ "クラスのオートローダー", "md_tutorials__x_h_autoloading.html", null ],
+        [ "CSRF保護", "md_tutorials__x_h__c_s_r_f_protection.html", null ],
+        [ "FileEditクラス階層", "md_tutorials__x_h__file_edit.html", null ],
+        [ "JavaScript", "md_tutorials__x_h__java_script.html", "java_script" ],
         [ "PSR-0 – オートローディング規約", "ja_psr-0.html", null ],
         [ "PSR-1 – 基本コーディング規約", "ja_psr-1-basic-coding-standard.html", null ],
         [ "PSR-2 – コーディングスタイルガイド", "ja_psr-2-coding-style-guide.html", null ],

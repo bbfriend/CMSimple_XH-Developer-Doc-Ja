@@ -101,7 +101,12 @@ var menudata={children:[
 {text:"p",url:"globals_vars.html#index_p"},
 {text:"x",url:"globals_vars.html#index_x"}]}
 ]}]},
-{text:"◎参考資料",url:"ja_additions.html",children:[
+{text:"◎追加資料",url:"pages_add.html",children:[
+{text:"クラスの自動ロード",url:"md_tutorials__x_h_autoloading.html"},
+{text:"CSRF 攻撃からの保護",url:"md_tutorials__x_h__file_edit.html"},
+{text:"FileEditクラス階層",url:"ja_psr-0.html"},
+{text:"JavaScript ",url:"md_tutorials__x_h__java_script.html",children:[
+{text:"JavaScript開発者ドキュメント",url:"../js/index.html"}]},
 {text:"PSR-0 – オートローディング規約",url:"ja_psr-0.html"},
 {text:"PSR-1 – 基本コーディング規約",url:"ja_psr-1-basic-coding-standard.html"},
 {text:"PSR-2 – コーディングスタイルガイド",url:"ja_psr-2-coding-style-guide.html"},
